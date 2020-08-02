@@ -1,19 +1,23 @@
 const path = require("path");
+require("dotenv").config();
 
-const publicPath = path.resolve(__dirname, "client");
-const srcPath = path.resolve(__dirname, "server/public");
+const publicPath = path.resolve(__dirname, "server/public");
+const srcPath = path.resolve(__dirname, "client");
 
 module.exports = {
-  mode: "development",
+  mode: "none",
   resolve: {
     extensions: [".js", ".jsx"],
   },
   entry: srcPath,
-  output: publicPath,
+  output: {
+    path: publicPath,
+  },
   module: {
     rules: [
       {
-        test: /^.jsx?$/,
+        test: /\.jsx?$/,
+        include: srcPath,
         use: {
           loader: "babel-loader",
           options: {
