@@ -4,15 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode=production",
+    "client": "webpack-dev-server",
+    "server": "node server/index.js",
+    "dev": "npm-run-all --silent --parralel client server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luciousmc/coast-health-ceu-registration.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Marlon Clay",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/luciousmc/coast-health-ceu-registration/issues"
   },
