@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack --mode=production",
     "client": "webpack-dev-server",
-    "server": "node server/index.js",
+    "db:import": "source .env && psql $DATABASE_URL < database/dump.sql",
+    "db:export": "source .env && pg_dump -c --if-exists -O $DATABASE_URL > database/dump.sql",
+    "server": "nodemon server/index.js",
     "dev": "npm-run-all --silent --parallel client server"
   },
   "repository": {
@@ -23,6 +25,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "nodemon": "^2.0.4",
     "pg": "^8.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

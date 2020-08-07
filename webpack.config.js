@@ -30,7 +30,7 @@ module.exports = {
   devServer: {
     contentBase: publicPath,
     proxy: {
-      "/api": process.env.SERVER_PORT,
+      "/api": `http://localhost:${process.env.SERVER_PORT}`,
     },
     port: process.env.DEV_SERVER_PORT,
     historyApiFallback: true,
